@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 REPO_DIR=$PWD
 
