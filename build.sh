@@ -56,12 +56,17 @@ export Vorbis_File_LIBRARY=${DEPS_DIR}/lib/libvorbisfile.a
 export PKG_CONFIG_PATH=${REPO_DIR}/deps/lib/pkgconfig
 export EM_PKG_CONFIG_PATH=${PKG_CONFIG_PATH}
 
+configure_project () {
+  emcmake cmake -DCMAKE_INSTALL_PREFIX=${DEPS_DIR} -DBUILD_TESTING=OFF -DENABLE_CPACK=OFF -DINSTALL_PKGCONFIG_MODULE=ON -DINSTALL_MANPAGES=OFF -DBUILD_PROGRAMS=OFF -DBUILD_EXAMPLES=OFF ..
+}
+
 # FIXME: first attempt always fails no matter what with OGG_FOUND undefined related errors
-emcmake cmake -DBUILD_TESTING=OFF -DENABLE_CPACK=OFF -DINSTALL_PKGCONFIG_MODULE=ON -DINSTALL_MANPAGES=OFF -DBUILD_PROGRAMS=OFF -DBUILD_EXAMPLES=OFF ..
+configure_project
 
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
 # But second attempt to configure project should succeed
-emcmake cmake -DBUILD_TESTING=OFF -DENABLE_CPACK=OFF -DINSTALL_PKGCONFIG_MODULE=ON -DINSTALL_MANPAGES=OFF -DBUILD_PROGRAMS=OFF -DBUILD_EXAMPLES=OFF ..
+configure_project
 emmake make
+emmake make install
