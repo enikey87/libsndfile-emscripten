@@ -54,6 +54,7 @@ doc/ChangeLog
 doc/NEWS
 doc/README
 doc/libsndfile.css
+build
 echo-install-dirs
 examples/generate
 examples/list_formats
