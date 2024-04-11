@@ -1,5 +1,22 @@
 cmake_minimum_required (VERSION 3.5..3.26)
 
+set(OGG_LIBRARY "$ENV{DEPS_DIR}/lib/libogg.a")
+set(OGG_INCLUDE_DIR "$ENV{DEPS_DIR}/include")
+
+set(OPUS_LIBRARY "$ENV{DEPS_DIR}/lib/libopus.a")
+set(OPUS_INCLUDE_DIR "$ENV{DEPS_DIR}/include")
+
+set(FLAC_LIBRARY "$ENV{DEPS_DIR}/lib/libFLAC.a")
+set(FLAC_INCLUDE_DIR "$ENV{DEPS_DIR}/include")
+
+set(Vorbis_Vorbis_INCLUDE_DIR "$ENV{DEPS_DIR}/include")
+set(Vorbis_Enc_INCLUDE_DIR "$ENV{DEPS_DIR}/include")
+set(Vorbis_File_INCLUDE_DIR "$ENV{DEPS_DIR}/include")
+
+set(Vorbis_Vorbis_LIBRARY "$ENV{DEPS_DIR}/lib/libvorbis.a")
+set(Vorbis_Enc_LIBRARY "$ENV{DEPS_DIR}/lib/libvorbisenc.a")
+set(Vorbis_File_LIBRARY "$ENV{DEPS_DIR}/lib/libvorbisfile.a")
+
 # MSVC runtime library flags are selected by an abstraction, CMake >= 3.15
 # This policy still need to be set even with cmake_minimum_required() command above.
 if (POLICY CMP0091)
